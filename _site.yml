@@ -3,6 +3,7 @@ title: "Brandon-Ouellette"
 description: |
   Brandon-Ouellette
 output_dir: "docs"
+theme: brandon-theme.css
 navbar:
   right:
     - text: "Home"
