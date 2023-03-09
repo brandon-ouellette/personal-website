@@ -1,0 +1,73 @@
+---
+title: "NFL Analysis"
+# description: |
+#   A new article created using the Distill format.
+# author:
+#   - name: Nora Jones 
+#     url: https://example.com/norajones
+#     affiliation: Spacely Sprockets
+#     affiliation_url: https://example.com/spacelysprokets
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(nflfastR)
+library(tidyverse)
+
+pbp <- nflfastR::load_pbp(2022) %>% 
+  filter(season_type == "REG") %>% 
+  filter(!is.na(posteam) & (rush == 1 | pass == 1))
+
+offense <- pbp %>%
+  dplyr::group_by(team = posteam) %>%
+  dplyr::summarise(off_epa = mean(epa, na.rm = TRUE))
+
+defense <- pbp %>%
+  dplyr::group_by(team = defteam) %>%
+  dplyr::summarise(def_epa = mean(epa, na.rm = TRUE))
+```
+
+# Introduction
+
+My favorite team is the New England Patriots. The Patriots had a bit of a down year 
+in the 2022 season. This analysis is intended to dive into some of the data to get 
+to the bottom of why the team struggled.
+
+
+# Offense
+
+Many point to the offense as the main reason for the Patriots struggles, and rightly 
+so as they came into the season with questions about their offensive coaching staff 
+and how that would impact their 2nd year quarterback, Mac Jones.  
+
+```{r}
+offense %>%
+  dplyr::inner_join(defense, by = "team") %>%
+  ggplot2::ggplot(aes(x = off_epa, y = def_epa)) +
+  ggplot2::geom_abline(slope = -1.5, intercept = c(.4, .3, .2, .1, 0, -.1, -.2, -.3), alpha = .2) +
+  nflplotR::geom_mean_lines(aes(h_var = off_epa, v_var = def_epa)) +
+  nflplotR::geom_nfl_logos(aes(team_abbr = team), width = 0.07, alpha = 0.7) +
+  ggplot2::labs(
+    x = "Offense EPA/play",
+    y = "Defense EPA/play",
+    caption = "Data: @nflfastR",
+    title = "2022 NFL Offensive and Defensive EPA per Play"
+  ) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(
+    plot.title = ggplot2::element_text(size = 12, hjust = 0.5, face = "bold")
+  ) +
+  ggplot2::scale_y_reverse()
+```
+
+<br>
+
+As we can see here, the defense was near top of the league in EPA, while the offense 
+ranked below the league average.
+
+
+
+

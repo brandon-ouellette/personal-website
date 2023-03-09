@@ -1,13 +1,17 @@
 name: "."
-title: "Brandon-Ouellette"
+title: "Home"
 description: |
   Brandon-Ouellette
 output_dir: "docs"
 theme: brandon-theme.css
 navbar:
   right:
-    - text: "Home"
-      href: index.html
     - text: "About"
       href: about.html
+    - text: "Projects"
+      menu: 
+        - text: "Project1"
+          href: project1.html
+        - text: "Project2"
+          href: project2.html
 output: distill::distill_article
