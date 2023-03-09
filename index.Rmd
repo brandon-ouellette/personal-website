@@ -1,14 +1,12 @@
 ---
 title: "Brandon Ouellette"
-image: "frank.jpg"
+image: "imgs/b-logo.jpg"
 links:
-  - label: LinkedIn
-    url: "https://linkedin.com/"
-  - label: Twitter
-    url: "https://twitter.com/"
-  - label: GitHub
-    url: "https://github.com/"
-  - label: Email
+  - label: '<i class="fab fa-linkedin"></i> LinkedIn'
+    url: 'https://www.linkedin.com/in/brandon-ouellette-233225224/ target="_blank"'
+  - label: '<i class="fab fa-github"></i> GitHub'
+    url: 'https://github.com/ target="_blank"'
+  - label: '<i class="fas fa-envelope"></i> Email'
     url: "mailto:email@email.com"
 output:
   postcards::trestles
@@ -17,25 +15,16 @@ site: distill::distill_website
  
 ## Bio
 
-Frank Hermosillo studies neural networks and their applications at Google 
-Brain. His research focuses on differentiable network pruning approximation and 
-decentralized gradient inversion mechanics. He frequently collaborates with 
-researchers who study machine learning, computer vision, and cognitive science.
-His work has been featured in WIRED, The Atlantic, Newsweek, and The New York 
-Times Magazine.
+Motivated self-starter with experience in Data Analysis and Data Science. Skilled with leveraging data for data storytelling, trend analysis, and Natural Language Processing (NLP). Dedicated to data-driven process improvement and efficiency through collaboration, thoughtful ideation, and testing.
 
 ## Education
 
-**Massachusetts Institute of Technology** | Cambridge, MA
+**Southern New Hampshire University** | Manchester, NH
 
-Ph.D. in Computer Science | September 2009 - May 2014
-
-**The University of California, Berkeley** | Berkeley, CA
-
-B.S. in Computer Science | September 2005 - May 2009
+Bachelor of Arts in History | May 2016
 
 ## Experience
 
-**Google Brain** | Principal Investigator | January 2018 - Present
+**Southern New Hampshire University** | Business Intelligence Analyst | January 2022 - Present
 
-**Netflix** | Research Scientist | June 2014 - December 2017
+**Southern New Hampshire University** | Support Analyst | November 2020 - January 2022
